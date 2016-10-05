@@ -4,7 +4,7 @@
 #include "Camera.h"
 
 #pragma once
-class flycamera : Camera
+class flycamera : public Camera
 {
 public:
 	flycamera();

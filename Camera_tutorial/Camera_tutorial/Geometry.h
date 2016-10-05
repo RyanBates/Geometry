@@ -14,14 +14,14 @@ public:
 	Geometry();
 	~Geometry();
 
-	bool startup() override;
+	bool startup();
 	void shutdown() override;
 	void generatePlane();
 	void generateSquare();
 	void generateSphere(const int radius, bool isfilled);
 	void generateShader();
 
-	bool update(float deltatime);
+	bool update(float deltatime) override;
 	void draw_Plane();
 	void draw_Square();
 	void draw_Sphere();

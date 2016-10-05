@@ -72,7 +72,6 @@ bool Window::createWindow(const char * title, int width, int height)
 
 void Window::destroyWindow()
 {
-
 	glfwDestroyWindow(window);
 	glfwTerminate();
 }

@@ -68,10 +68,7 @@ void Geometry::generateSquare()
 	vertices[6].position = vec4(-3, 0, 3, 1);
 	vertices[7].position = vec4(3, 0, 3, 1);
 
-	vertices[0].colour = vec4(1, 0, 0, 1);
-	vertices[1].colour = vec4(0, 1, 0, 1);
-	vertices[2].colour = vec4(0, 0, 1, 1);
-	vertices[3].colour = vec4(1, 1, 1, 1);
+	vertices[0 - 7].colour = vec4(1, 0, 0, 1);
 
 	glGenBuffers(1, &m_VBO);
 	glGenBuffers(1, &m_IBO);
@@ -86,12 +83,9 @@ void Geometry::generateSquare()
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_IBO);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, 4 * sizeof(unsigned int), indices, GL_STATIC_DRAW);
 
-
-
 	//i need to give the information for the layout location 0
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
-
 
 	glEnableVertexAttribArray(1);
 	glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)(sizeof(vec4)));
@@ -105,9 +99,9 @@ void Geometry::generateSquare()
 void Geometry::generateSphere(const int radius, bool isfilled)
 {
 	Vertex vertices[24];
-	unsigned int indices[24] = { 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23 };
+	unsigned int indices[16] = { 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15 };
 
-	for (int i = 0; i < 24; i++)
+	for (int i = 0; i < 16; i++)
 	{
 		double angle = i * (2 * 3.14159 / 22);
 
@@ -115,7 +109,7 @@ void Geometry::generateSphere(const int radius, bool isfilled)
 		double Z = cos(angle) * radius;
 	}
 
-	//vertices[].colour
+	vertices[0 - 24].colour = vec4(0, 1, 1, 1);
 
 	//generate buffers
 	glGenBuffers(1, &m_VBO);
@@ -126,8 +120,6 @@ void Geometry::generateSphere(const int radius, bool isfilled)
 	glBindVertexArray(m_VAO);
 	//bind vertex buffer
 	glBindBuffer(GL_ARRAY_BUFFER, m_VBO);
-	//index data
-
 	//set buffer data for vertices
 	glBufferData(GL_ARRAY_BUFFER, 4 * sizeof(Vertex), vertices, GL_STATIC_DRAW);
 	//set buffer data for indinces
@@ -183,8 +175,7 @@ void Geometry::generateShader()
 		printf("%s\n", infoLog);
 		delete[] infoLog;
 	}
-
-
+	
 	// we don't need to keep the individual shaders around
 	glDeleteShader(fragmentShader);
 	glDeleteShader(vertexShader);
@@ -194,12 +185,15 @@ bool Geometry::startup()
 {
 	createWindow("AIE OpenGL Application", 1280, 720);
 
+	m_cam->setPerspective(glm::pi<float>() * .25f, 16.0f / 9.0f, 0.0f, 20.0f);
+	m_cam->setLookAt(vec3(10,10,10), vec3(0), vec3(1));
+	
 	generateShader();
 	generatePlane();
 	generateSquare();
 	generateSphere(5, true);
-	
-	return true;
+
+	return false;
 }
 
 void Geometry::shutdown()
@@ -246,7 +240,7 @@ void Geometry::draw_Square()
 
 	glUniformMatrix4fv(matUniform, 1, GL_FALSE, glm::value_ptr(m_cam->getProjectionView()));
 	glBindVertexArray(m_VAO);
-	glDrawElements(GL_TRIANGLE_STRIP, 4, GL_UNSIGNED_INT, (void*)0);
+	glDrawElements(GL_LINE_LOOP, 4, GL_UNSIGNED_INT, (void*)0);
 }
 
 void Geometry::draw_Sphere()
@@ -264,8 +258,8 @@ void Geometry::draw_Sphere()
 
 void Geometry::draw()
 {
-	//draw_Plane();
-	draw_Square();
+	draw_Plane();
+	//draw_Square();
 	//draw_Sphere();
 }
 
