@@ -1,53 +1,14 @@
 ﻿  Window.cpp
   Sources.h
   main.cpp
-c:\users\ryan\desktop\geometry\camera_tutorial\camera_tutorial\camera.h(11): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   Geometry.cpp
-c:\users\ryan\desktop\geometry\camera_tutorial\camera_tutorial\camera.h(11): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   flycamera.cpp
-c:\users\ryan\desktop\geometry\camera_tutorial\camera_tutorial\camera.h(11): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-c:\users\ryan\desktop\geometry\camera_tutorial\camera_tutorial\flycamera.cpp(34): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-c:\users\ryan\desktop\geometry\camera_tutorial\camera_tutorial\flycamera.cpp(35): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\ryan.bates\desktop\geometry\camera_tutorial\camera_tutorial\flycamera.cpp(34): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\ryan.bates\desktop\geometry\camera_tutorial\camera_tutorial\flycamera.cpp(35): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  Gizmos.cpp
   Camera.cpp
-c:\users\ryan\desktop\geometry\camera_tutorial\camera_tutorial\camera.h(11): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   Generating Code...
-Camera.obj : error LNK2019: unresolved external symbol _glfwGetTime referenced in function "public: __thiscall Camera::Camera(void)" (??0Camera@@QAE@XZ)
-flycamera.obj : error LNK2019: unresolved external symbol _glfwGetKey referenced in function "public: virtual void __thiscall flycamera::update(float)" (?update@flycamera@@UAEXM@Z)
-Geometry.obj : error LNK2001: unresolved external symbol _glfwGetKey
-flycamera.obj : error LNK2019: unresolved external symbol _glfwGetMouseButton referenced in function "public: virtual void __thiscall flycamera::update(float)" (?update@flycamera@@UAEXM@Z)
-flycamera.obj : error LNK2019: unresolved external symbol _glfwGetCursorPos referenced in function "public: virtual void __thiscall flycamera::update(float)" (?update@flycamera@@UAEXM@Z)
-Geometry.obj : error LNK2019: unresolved external symbol _glfwWindowShouldClose referenced in function "public: virtual bool __thiscall Geometry::update(float)" (?update@Geometry@@UAE_NM@Z)
-Geometry.obj : error LNK2019: unresolved external symbol _glfwGetWindowUserPointer referenced in function "public: void __thiscall Geometry::inputCallback(struct GLFWwindow *,int,int,int,int)" (?inputCallback@Geometry@@QAEXPAUGLFWwindow@@HHHH@Z)
-Geometry.obj : error LNK2001: unresolved external symbol __ptrc_glClear
-Geometry.obj : error LNK2001: unresolved external symbol __ptrc_glDrawElements
-Geometry.obj : error LNK2001: unresolved external symbol __ptrc_glBindBuffer
-Geometry.obj : error LNK2001: unresolved external symbol __ptrc_glBufferData
-Geometry.obj : error LNK2001: unresolved external symbol __ptrc_glGenBuffers
-Geometry.obj : error LNK2001: unresolved external symbol __ptrc_glAttachShader
-Geometry.obj : error LNK2001: unresolved external symbol __ptrc_glCompileShader
-Geometry.obj : error LNK2001: unresolved external symbol __ptrc_glCreateProgram
-Geometry.obj : error LNK2001: unresolved external symbol __ptrc_glCreateShader
-Geometry.obj : error LNK2001: unresolved external symbol __ptrc_glDeleteShader
-Geometry.obj : error LNK2001: unresolved external symbol __ptrc_glEnableVertexAttribArray
-Geometry.obj : error LNK2001: unresolved external symbol __ptrc_glGetProgramInfoLog
-Geometry.obj : error LNK2001: unresolved external symbol __ptrc_glGetProgramiv
-Geometry.obj : error LNK2001: unresolved external symbol __ptrc_glGetUniformLocation
-Geometry.obj : error LNK2001: unresolved external symbol __ptrc_glLinkProgram
-Geometry.obj : error LNK2001: unresolved external symbol __ptrc_glShaderSource
-Geometry.obj : error LNK2001: unresolved external symbol __ptrc_glUniformMatrix4fv
-Geometry.obj : error LNK2001: unresolved external symbol __ptrc_glUseProgram
-Geometry.obj : error LNK2001: unresolved external symbol __ptrc_glVertexAttribPointer
-Geometry.obj : error LNK2001: unresolved external symbol __ptrc_glBindVertexArray
-Geometry.obj : error LNK2001: unresolved external symbol __ptrc_glGenVertexArrays
-Window.obj : error LNK2019: unresolved external symbol "public: static void __cdecl Gizmos::create(unsigned int,unsigned int,unsigned int,unsigned int)" (?create@Gizmos@@SAXIIII@Z) referenced in function "public: virtual bool __thiscall Window::createWindow(char const *,int,int)" (?createWindow@Window@@UAE_NPBDHH@Z)
-Window.obj : error LNK2019: unresolved external symbol _ogl_LoadFunctions referenced in function "public: virtual bool __thiscall Window::createWindow(char const *,int,int)" (?createWindow@Window@@UAE_NPBDHH@Z)
-Window.obj : error LNK2019: unresolved external symbol _ogl_GetMinorVersion referenced in function "public: virtual bool __thiscall Window::createWindow(char const *,int,int)" (?createWindow@Window@@UAE_NPBDHH@Z)
-Window.obj : error LNK2019: unresolved external symbol _ogl_GetMajorVersion referenced in function "public: virtual bool __thiscall Window::createWindow(char const *,int,int)" (?createWindow@Window@@UAE_NPBDHH@Z)
-Window.obj : error LNK2019: unresolved external symbol _glfwInit referenced in function "public: virtual bool __thiscall Window::createWindow(char const *,int,int)" (?createWindow@Window@@UAE_NPBDHH@Z)
-Window.obj : error LNK2019: unresolved external symbol _glfwTerminate referenced in function "public: virtual bool __thiscall Window::createWindow(char const *,int,int)" (?createWindow@Window@@UAE_NPBDHH@Z)
-Window.obj : error LNK2019: unresolved external symbol _glfwCreateWindow referenced in function "void __cdecl `dynamic initializer for 'window''(void)" (??__Ewindow@@YAXXZ)
-Window.obj : error LNK2019: unresolved external symbol _glfwDestroyWindow referenced in function "public: virtual bool __thiscall Window::createWindow(char const *,int,int)" (?createWindow@Window@@UAE_NPBDHH@Z)
-Window.obj : error LNK2019: unresolved external symbol _glfwMakeContextCurrent referenced in function "public: virtual bool __thiscall Window::createWindow(char const *,int,int)" (?createWindow@Window@@UAE_NPBDHH@Z)
-Window.obj : error LNK2001: unresolved external symbol __ptrc_glClearColor
-Window.obj : error LNK2001: unresolved external symbol __ptrc_glEnable
-C:\Users\Ryan\Desktop\Geometry\Camera_tutorial\Debug\Camera_tutorial.exe : fatal error LNK1120: 38 unresolved externals
+  gl_core_4_4.c
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+  Camera_tutorial.vcxproj -> C:\Users\Ryan.Bates\Desktop\Geometry\Camera_tutorial\Debug\Camera_tutorial.exe
+  Camera_tutorial.vcxproj -> C:\Users\Ryan.Bates\Desktop\Geometry\Camera_tutorial\Debug\Camera_tutorial.pdb (Partial PDB)

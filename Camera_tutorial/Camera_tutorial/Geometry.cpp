@@ -115,6 +115,8 @@ void Geometry::generateSphere(const int radius, bool isfilled)
 		double Z = cos(angle) * radius;
 	}
 
+	//vertices[].colour
+
 	//generate buffers
 	glGenBuffers(1, &m_VBO);
 	glGenBuffers(1, &m_IBO);
@@ -187,12 +189,16 @@ void Geometry::generateShader()
 	glDeleteShader(fragmentShader);
 	glDeleteShader(vertexShader);
 }
+
 bool Geometry::startup()
 {
 	createWindow("AIE OpenGL Application", 1280, 720);
 
 	generateShader();
 	generatePlane();
+	generateSquare();
+	generateSphere(5, true);
+	
 	return true;
 }
 

@@ -27,6 +27,12 @@
     <ClInclude Include="Geometry.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="dep\AIEUtilities\gl_core_4_4.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dep\AIEUtilities\Gizmos.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Camera.cpp">
@@ -46,6 +52,12 @@
     </ClCompile>
     <ClCompile Include="Sources.h">
       <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dep\AIEUtilities\gl_core_4_4.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dep\AIEUtilities\Gizmos.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

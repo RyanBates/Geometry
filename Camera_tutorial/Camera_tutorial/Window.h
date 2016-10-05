@@ -6,7 +6,6 @@ public:
 	Window();
 	~Window();
 
-
 	void run();
 
 	virtual bool startup();

@@ -79,6 +79,9 @@
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link />
+    <Link>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -115,12 +118,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="dep\AIEUtilities\Gizmos.h" />
+    <ClInclude Include="dep\AIEUtilities\gl_core_4_4.h" />
     <ClInclude Include="flycamera.h" />
     <ClInclude Include="Geometry.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="dep\AIEUtilities\Gizmos.cpp" />
+    <ClCompile Include="dep\AIEUtilities\gl_core_4_4.c" />
     <ClCompile Include="flycamera.cpp" />
     <ClCompile Include="Geometry.cpp" />
     <ClCompile Include="main.cpp" />
