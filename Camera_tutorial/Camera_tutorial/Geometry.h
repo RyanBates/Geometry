@@ -8,6 +8,8 @@ struct Vertex {
 	glm::vec4 colour;
 };
 
+class File;
+
 class Geometry : public Window
 {
 public:

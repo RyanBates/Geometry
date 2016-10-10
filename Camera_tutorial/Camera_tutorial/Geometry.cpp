@@ -1,4 +1,6 @@
 #include "Geometry.h"
+#include <iostream>
+#include <fstream>
 
 using namespace glm;
 
@@ -8,6 +10,33 @@ Geometry::Geometry()
 
 Geometry::~Geometry()
 {
+}
+
+bool Geometry::startup()
+{
+	
+	createWindow("AIE OpenGL Application", 1280, 720);
+	
+	//m_cam->setPerspective(glm::pi<float>() * .25f, 16.0f / 9.0f, 0.0f, 20.0f);
+	//m_cam->setLookAt(vec3(10,10,10), vec3(0), vec3(1));
+	
+	generateShader();
+	generatePlane();
+	generateSquare();
+	generateSphere(5, true);
+
+	return false;
+}
+
+
+bool Geometry::update(float deltatime)
+{
+	if (glfwWindowShouldClose(m_window) == false || glfwGetKey(m_window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+	{
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		return true;
+	}
+	return false;
 }
 
 void Geometry::generatePlane()
@@ -68,7 +97,14 @@ void Geometry::generateSquare()
 	vertices[6].position = vec4(-3, 0, 3, 1);
 	vertices[7].position = vec4(3, 0, 3, 1);
 
-	vertices[0 - 7].colour = vec4(1, 0, 0, 1);
+	vertices[0].colour = vec4(1, 0, 0, 1);
+	vertices[1].colour = vec4(1, 0, 0, 1);
+	vertices[2].colour = vec4(1, 0, 0, 1);
+	vertices[3].colour = vec4(1, 0, 0, 1);
+	vertices[4].colour = vec4(1, 0, 0, 1);
+	vertices[5].colour = vec4(1, 0, 0, 1);
+	vertices[6].colour = vec4(1, 0, 0, 1);
+	vertices[7].colour = vec4(1, 0, 0, 1);
 
 	glGenBuffers(1, &m_VBO);
 	glGenBuffers(1, &m_IBO);
@@ -149,6 +185,8 @@ void Geometry::generateShader()
 							out vec4 FragColor; \
 							void main() { FragColor = vColour; }";
 
+
+
 	int success = GL_FALSE;
 	unsigned int vertexShader = glCreateShader(GL_VERTEX_SHADER);
 	unsigned int fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
@@ -179,38 +217,6 @@ void Geometry::generateShader()
 	// we don't need to keep the individual shaders around
 	glDeleteShader(fragmentShader);
 	glDeleteShader(vertexShader);
-}
-
-bool Geometry::startup()
-{
-	createWindow("AIE OpenGL Application", 1280, 720);
-
-	m_cam->setPerspective(glm::pi<float>() * .25f, 16.0f / 9.0f, 0.0f, 20.0f);
-	m_cam->setLookAt(vec3(10,10,10), vec3(0), vec3(1));
-	
-	generateShader();
-	generatePlane();
-	generateSquare();
-	generateSphere(5, true);
-
-	return false;
-}
-
-void Geometry::shutdown()
-{
-	delete m_cam;
-
-	destroyWindow();
-}
-
-bool Geometry::update(float deltatime)
-{
-	if (glfwWindowShouldClose(m_window) == false || glfwGetKey(m_window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
-	{
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-		return true;
-	}
-	return false;
 }
 
 void Geometry::draw_Plane()
@@ -261,6 +267,13 @@ void Geometry::draw()
 	draw_Plane();
 	//draw_Square();
 	//draw_Sphere();
+}
+
+void Geometry::shutdown()
+{
+	delete m_cam;
+
+	destroyWindow();
 }
 
 void Geometry::inputCallback(GLFWwindow* window, int key, int scancode, int action, int mods) {
