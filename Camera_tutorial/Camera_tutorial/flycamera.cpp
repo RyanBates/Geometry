@@ -6,11 +6,11 @@ flycamera::flycamera()
 {
 	up = glm::vec3(0, 1, 0);
 
-	setLookAt(vec3(),vec3(), vec3());
-	setPerspective(glm::pi<float>() * .35f,0,0,0);
+	setLookAt(vec3(10.f, 10.f, 10.f), vec3(0.f, 0.f, -1.0f), up);
+	setPerspective(glm::pi<float>() * 0.35f, 16 / 9.f, 0.1f, 1000.f);
 	lastX = 0;
 	lastY = 0;
-	firstMouseClick = true;
+	firstMouseClick = true;	
 }
 
 
@@ -20,13 +20,11 @@ flycamera::~flycamera()
 
 void flycamera::update(float deltaTime)
 {
-	mat4 trans = mat4(1);
 	mat4 rotate = mat4(1);
-	mat4 scale = mat4(1);
 
-	if (glfwGetMouseButton(m_window, GLFW_MOUSE_BUTTON_RIGHT))
+	if (glfwGetMouseButton(m_window, GLFW_MOUSE_BUTTON_LEFT))
 	{
-		double xpos = 0; 
+		double xpos = 0;
 		double ypos = 0;
 
 		float axis = 0.0f;
@@ -49,7 +47,7 @@ void flycamera::update(float deltaTime)
 		if (yoffset < 1 || yoffset > 1)
 		{
 			axis = yoffset;
-			rotate[0][0] = cos(axis);
+			rotate[1][1] = cos(axis);
 			rotate[1][2] = -1 * sin(axis);
 			rotate[2][1] = sin(axis);
 			rotate[2][2] = cos(axis);
@@ -59,27 +57,7 @@ void flycamera::update(float deltaTime)
 		lastY = ypos;
 	}
 
-	if (glfwGetKey(m_window, GLFW_KEY_W) == GLFW_PRESS)
-	{
-		trans = glm::translate(vec3(0, 0, (-0.10f * deltaTime) * 10));
-	}
-
-	if (glfwGetKey(m_window, GLFW_KEY_A) == GLFW_PRESS)
-	{
-		trans = glm::translate(vec3(-(-0.10f * deltaTime) * 10, 0, 0));
-	}
-
-	if (glfwGetKey(m_window, GLFW_KEY_S) == GLFW_PRESS)
-	{
-		trans = glm::translate(vec3(0, 0, -(-0.10f * deltaTime) * 10));
-	}
-
-	if (glfwGetKey(m_window, GLFW_KEY_D) == GLFW_PRESS)
-	{
-		trans = glm::translate(vec3((-0.10f * deltaTime) * 10, 0, 0));
-	}
-
-	viewTransform *= glm::inverse(trans * rotate * scale);
+	viewTransform *= glm::inverse(rotate);
 	updateProjectionViewTransform();
 }
 

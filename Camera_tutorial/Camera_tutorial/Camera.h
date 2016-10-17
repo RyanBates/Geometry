@@ -1,22 +1,25 @@
 #ifndef _CAMERA_H
 #define _CAMERA_H
-#include "Sources.h"
+
+#include "dep\AIEUtilities\Gizmos.h"
+#include "dep\AIEUtilities\gl_core_4_4.h"
+#include "dep\glfw\include\GLFW\glfw3.h"
+#include <glm\glm.hpp>
+#include <glm\ext.hpp>
+#include<glm\gtc\matrix_transform.hpp>
+#include<glm\gtx\transform.hpp>
 
 class Camera 
 {
 public:
 	Camera();
 	~Camera();
-
-	float currentTime = (float)glfwGetTime();
-	float previousTime = currentTime;
-	float deltaTime = currentTime - previousTime;
 	
 	glm::mat4 viewTransform;
 
 
 	virtual void update(float deltaTime) = 0;
-	void setPerspective(float fieldOfView, float aspectRatio, float near, float far);
+	virtual void setPerspective(float fieldOfView, float aspectRatio, float near, float far);
 	void setLookAt(glm::vec3 from, glm::vec3 to, glm::vec3 up);
 	void setPosition(glm::vec3 position);
 	glm::mat4 getWorldTransfom();

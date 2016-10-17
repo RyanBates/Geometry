@@ -122,24 +122,13 @@
     <ClInclude Include="dep\AIEUtilities\Gizmos.h" />
     <ClInclude Include="dep\AIEUtilities\gl_core_4_4.h" />
     <ClInclude Include="flycamera.h" />
-    <ClInclude Include="Geometry.h" />
-    <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="dep\AIEUtilities\Gizmos.cpp" />
     <ClCompile Include="dep\AIEUtilities\gl_core_4_4.c" />
     <ClCompile Include="flycamera.cpp" />
-    <ClCompile Include="Geometry.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Sources.h" />
-    <ClCompile Include="Window.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="vertex.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="frag.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

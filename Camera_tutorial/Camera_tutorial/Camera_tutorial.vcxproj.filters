@@ -21,12 +21,6 @@
     <ClInclude Include="flycamera.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Window.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Geometry.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="dep\AIEUtilities\gl_core_4_4.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -38,20 +32,8 @@
     <ClCompile Include="Camera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="flycamera.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Window.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Geometry.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Sources.h">
-      <Filter>Header Files</Filter>
     </ClCompile>
     <ClCompile Include="dep\AIEUtilities\gl_core_4_4.c">
       <Filter>Source Files</Filter>
@@ -59,15 +41,8 @@
     <ClCompile Include="dep\AIEUtilities\Gizmos.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="vertex.txt">
-      <Filter>Resource Files</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="frag.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
